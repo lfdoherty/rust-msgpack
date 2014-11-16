@@ -766,7 +766,7 @@ impl<'a> serialize::Encodable<Encoder<'a>, IoError> for Value {
                 }
                 Ok(())
             }
-            Str(ref str) => (s as &mut serialize::Encoder<IoError>).emit_str(from_utf8(str.as_slice()).unwrap()), // XXX
+            Str(ref str) => s.emit_str(from_utf8(str.as_slice()).unwrap()), // XXX
                 Binary(_) => panic!(), // XXX
                 Extended(_, _) => panic!() // XXX
         }
